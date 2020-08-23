@@ -34,7 +34,7 @@ socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close()
   })
 myPeer.on('open',id=>{
-    socket.emit('join-room',Room_Id,id);
+    socket.emit('join-room',ROOM_ID,id);
 })
 
 const newUserConnected=(userId,stream)=>{
