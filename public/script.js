@@ -4,11 +4,11 @@ const myVideo = document.createElement('video');
 //const child_process = require("child_process");
 const peers ={}
 myVideo.muted=true;
-const myPeer = new Peer(undefined,{
-   
-    host:'/',
-    port:'3031'
-}); 
+const myPeer = new Peer(undefined, {
+    path: '/peerjs',
+    host: '/',
+    port: '3030'
+  })
 let myVideoStream;
 navigator.mediaDevices.getUserMedia(
    { video:true,
@@ -19,7 +19,7 @@ myVideoStream=stream;
 
 addVideoStream(myVideo,stream);
 socket.on('user-connect',(userId)=>{
-    setTimeout(function() {
+     setTimeout(function() {
         newUserConnected(userId,stream);
         console.log('Blah blah blah blah extra-blah');
     }, 1000);
