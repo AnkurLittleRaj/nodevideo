@@ -1,6 +1,7 @@
 const socket =io('/')
 const videoGrid =document.getElementById('video-grid');
 const myVideo = document.createElement('video');
+//const child_process = require("child_process");
 const peers ={}
 myVideo.muted=true;
 const myPeer = new Peer(undefined,{
@@ -14,9 +15,15 @@ navigator.mediaDevices.getUserMedia(
     audio:true}
 ).then(stream=>{
 myVideoStream=stream;
+//child_process.execSync("sleep 5");
+
 addVideoStream(myVideo,stream);
 socket.on('user-connect',(userId)=>{
-    newUserConnected(userId,stream);
+    setTimeout(function() {
+        newUserConnected(userId,stream);
+        console.log('Blah blah blah blah extra-blah');
+    }, 2000);
+   
 })
 myPeer.on('call',call=>{
     call.answer(stream); 
