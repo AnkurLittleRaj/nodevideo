@@ -4,9 +4,9 @@ const myVideo = document.createElement('video');
 const peers ={}
 myVideo.muted=true;
 const myPeer = new Peer(undefined,{
-     path:'/peerjs',
+   
     host:'/',
-    port:'434'
+    port:'3031'
 }); 
 let myVideoStream;
 navigator.mediaDevices.getUserMedia(
@@ -26,11 +26,7 @@ myPeer.on('call',call=>{
         addVideoStream(video,userVideoStream);
     
     });
-    call.on('close', () => {
-        video.remove()
-      })
-    
-      peers[userId] = call
+  
 })
 
 });
@@ -47,6 +43,11 @@ const newUserConnected=(userId,stream)=>{
     call.on('stream',(uservideoStream)=>{
         addVideoStream(video,uservideoStream)
     })
+    call.on('close', () => {
+        video.remove()
+      })
+    
+      peers[userId] = call
     
 console.log("new User connected")
 }
