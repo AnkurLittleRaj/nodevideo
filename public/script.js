@@ -22,7 +22,7 @@ socket.on('user-connect',(userId)=>{
     setTimeout(function() {
         newUserConnected(userId,stream);
         console.log('Blah blah blah blah extra-blah');
-    }, 2000);
+    }, 1000);
    
 })
 myPeer.on('call',call=>{
