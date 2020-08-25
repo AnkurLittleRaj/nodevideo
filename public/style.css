@@ -39,7 +39,9 @@ video{
 }
 .main__right{   
     flex:0.2;
-    background-color: yellow
+    background-image: url('https://i.imgflip.com/2jfaqm.jpg');
+    background-repeat: round;
+    color:darkorange
 }
 .main__video{
     display: flex;
