@@ -7,7 +7,7 @@ myVideo.muted=true;
 const myPeer = new Peer(undefined, {
     path: '/peerjs',
     host: '/',
-    port: '443'
+    port: '3030'
   })
 let myVideoStream;
 navigator.mediaDevices.getUserMedia(
@@ -33,7 +33,7 @@ myPeer.on('call',call=>{
         addVideoStream(video,userVideoStream);
     
     });
-  
+
 })
 
 });
@@ -64,6 +64,42 @@ const addVideoStream = (video,stream)=>{
     video.addEventListener('loadedmetadata',()=>{
         video.play()
     });
-    videoGrid.append(video)    
+    videoGrid.append(video)   
+    
 }
+// var url = document.location.href;
+
+// var clipboard =  new Clipboard('#inviteButton', {
+//   text: function() {
+//     return url;
+//   }
+// });
+
+
+function myFunction() {
+        var dummy = document.createElement('input'),
+        text = window.location.href;
+    
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+  }
+// var InviteButton = document.getElementById("inviteButton");
+// document.execCommand("copy");
+// var muteButton = document.getElementById("muteButton");
+// if(muteButton){
+// muteButton.addEventListener('click',()=>{
+//     debugger
+//     if(video.muted){
+//         video.muted=false
+//     }
+//     else{
+//         video.muted=true;
+//     }
+// })}
 // peer.listen('3001')
+
